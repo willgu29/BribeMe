@@ -13,6 +13,9 @@
 		841A53011AA155B00055F6CF /* BribeMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A53001AA155B00055F6CF /* BribeMeTests.m */; };
 		841A530D1AA156510055F6CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A530B1AA156510055F6CF /* LoginViewController.swift */; };
 		841A530E1AA156510055F6CF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A530C1AA156510055F6CF /* LoginViewController.xib */; };
+		841A53121AA1593F0055F6CF /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A53111AA1593F0055F6CF /* SwipeView.m */; };
+		841A53191AA160B60055F6CF /* BribesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A53171AA160B60055F6CF /* BribesViewController.m */; };
+		841A531A1AA160B60055F6CF /* BribesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A53181AA160B60055F6CF /* BribesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,12 @@
 		841A530A1AA156500055F6CF /* BribeMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BribeMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		841A530B1AA156510055F6CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		841A530C1AA156510055F6CF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		841A53101AA1593F0055F6CF /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		841A53111AA1593F0055F6CF /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		841A53141AA160750055F6CF /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		841A53161AA160B60055F6CF /* BribesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BribesViewController.h; sourceTree = "<group>"; };
+		841A53171AA160B60055F6CF /* BribesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BribesViewController.m; sourceTree = "<group>"; };
+		841A53181AA160B60055F6CF /* BribesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BribesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +88,10 @@
 		841A52E31AA155B00055F6CF /* BribeMe */ = {
 			isa = PBXGroup;
 			children = (
+				841A53141AA160750055F6CF /* Constants.h */,
+				841A53131AA159430055F6CF /* External */,
 				841A530F1AA156810055F6CF /* FirstUserSteps */,
+				841A53151AA160830055F6CF /* MainInterface */,
 				841A530A1AA156500055F6CF /* BribeMe-Bridging-Header.h */,
 				841A52E81AA155B00055F6CF /* AppDelegate.h */,
 				841A52E91AA155B00055F6CF /* AppDelegate.m */,
@@ -122,6 +134,25 @@
 				841A530C1AA156510055F6CF /* LoginViewController.xib */,
 			);
 			name = FirstUserSteps;
+			sourceTree = "<group>";
+		};
+		841A53131AA159430055F6CF /* External */ = {
+			isa = PBXGroup;
+			children = (
+				841A53101AA1593F0055F6CF /* SwipeView.h */,
+				841A53111AA1593F0055F6CF /* SwipeView.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		841A53151AA160830055F6CF /* MainInterface */ = {
+			isa = PBXGroup;
+			children = (
+				841A53161AA160B60055F6CF /* BribesViewController.h */,
+				841A53171AA160B60055F6CF /* BribesViewController.m */,
+				841A53181AA160B60055F6CF /* BribesViewController.xib */,
+			);
+			name = MainInterface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +237,7 @@
 			files = (
 				841A530E1AA156510055F6CF /* LoginViewController.xib in Resources */,
 				841A52F21AA155B00055F6CF /* Images.xcassets in Resources */,
+				841A531A1AA160B60055F6CF /* BribesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,8 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				841A530D1AA156510055F6CF /* LoginViewController.swift in Sources */,
+				841A53121AA1593F0055F6CF /* SwipeView.m in Sources */,
 				841A52EA1AA155B00055F6CF /* AppDelegate.m in Sources */,
 				841A52E71AA155B00055F6CF /* main.m in Sources */,
+				841A53191AA160B60055F6CF /* BribesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +440,7 @@
 				841A53061AA155B00055F6CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		841A53071AA155B00055F6CF /* Build configuration list for PBXNativeTarget "BribeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +449,7 @@
 				841A53091AA155B00055F6CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
