@@ -24,8 +24,8 @@
     if (false) { //user logged in
         //Main view
     } else { //go to login screen
-        LoginViewController *introVC = [[LoginViewController alloc] initWithNibName:@"IntroViewController" bundle:nil];
-        self.window.rootViewController = introVC;
+        LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        self.window.rootViewController = loginVC;
     }
     
     
