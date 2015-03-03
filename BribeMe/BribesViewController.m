@@ -10,6 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "Constants.h"
 #import "Converter.h"
+#import "SettingsUIViewController.h"
 
 @interface BribesViewController ()
 
@@ -41,7 +42,8 @@
 }
 -(IBAction)settings:(UIButton *)sender
 {
-    
+    SettingsUIViewController *settingsVC = [[SettingsUIViewController alloc] initWithNibName:@"SettingsUIViewController" bundle:nil];
+    [self presentViewController:settingsVC animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView
@@ -49,8 +51,14 @@
     return [_categories count]; 
 }
 
+-(void)swipeViewCurrentItemIndexDidChange:(SwipeView *)swipeView
+{
+    _category.text = [Converter getCategoryFromIndex:swipeView.currentPage];
+    _pageControl.currentPage = swipeView.currentPage;
+}
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
+    
     if (view == nil)
     {
         //load new item view instance from nib
@@ -61,7 +69,6 @@
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.swipeView.bounds];
         tableView.delegate = self;
         tableView.dataSource = self;
-        _category.text = [Converter getCategoryFromIndex:index];
         [view addSubview:tableView];
 
     }
@@ -85,7 +92,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
         
     }
-    
+    cell.textLabel.text = @"Placeholder for bribes";
     return cell;
 }
 

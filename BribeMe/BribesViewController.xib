@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BribesViewController">
             <connections>
                 <outlet property="category" destination="Mhs-rI-Yxq" id="wjR-Wc-KXu"/>
+                <outlet property="pageControl" destination="wmg-9g-OfG" id="w5T-Kc-8k2"/>
                 <outlet property="searchBar" destination="D6p-gB-nyu" id="8UN-LF-cwI"/>
                 <outlet property="swipeView" destination="YfT-Ai-JgK" id="igq-Va-0o2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,7 +20,7 @@
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfT-Ai-JgK" customClass="SwipeView">
                     <rect key="frame" x="0.0" y="133" width="320" height="435"/>
-                    <color key="backgroundColor" red="0.087385006248950958" green="0.17710497975349426" blue="0.72760426998138428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="osR-q4-pYF"/>
                         <outlet property="delegate" destination="-1" id="j1N-7G-Tig"/>
@@ -33,8 +34,8 @@
                         <outlet property="delegate" destination="-1" id="38E-Rt-BhJ"/>
                     </connections>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-rI-Yxq">
-                    <rect key="frame" x="125" y="19" width="71" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-rI-Yxq">
+                    <rect key="frame" x="82" y="19" width="157" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -48,6 +49,11 @@
                         <action selector="settings:" destination="-1" eventType="touchUpInside" id="Ni4-V4-On8"/>
                     </connections>
                 </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="wmg-9g-OfG">
+                    <rect key="frame" x="111" y="76" width="98" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.95520550270000004" green="0.95520550270000004" blue="0.95520550270000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.53156844430000005" green="0.53156844430000005" blue="0.53156844430000005" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

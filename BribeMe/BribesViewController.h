@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) IBOutlet SwipeView *swipeView;
 @property (nonatomic, weak) IBOutlet UILabel *category;
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) IBOutlet UITextField *searchBar;
 
 

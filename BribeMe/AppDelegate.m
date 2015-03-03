@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "BribesViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,9 +20,10 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //if logged in, wordpress
-    if (false) { //user logged in
+    if (true) { //user logged in
         //Main view
+        BribesViewController *bribesVC = [[BribesViewController alloc] init];
+        self.window.rootViewController = bribesVC;
     } else { //go to login screen
         LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         self.window.rootViewController = loginVC;
