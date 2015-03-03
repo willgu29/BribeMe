@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wordpress.h"
 
-@interface BribesViewController : UIViewController
+@interface BribesViewController : UIViewController <WordpressDelegate>
 
 @end

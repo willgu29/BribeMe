@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BribeMe-Swift.h"
-
+#import "LoginViewController.h"
 @interface AppDelegate ()
 
 @end
