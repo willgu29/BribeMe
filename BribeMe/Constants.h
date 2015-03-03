@@ -11,6 +11,8 @@
 
 #define kBMBASE_URL                 @"http://bribeme.com"
 #define loginAction                 @"/?vhg_action=d56b699830e77ba53855679cb1d252da"
+#define createAccountAction         @"/?vhg_action=9de4a97425678c5b1288aa70c1669a64"
+
 #define GETMYBRIBES                 @"/?vhg_action=0a1f15b7ebb31fd565ef5ac6c99dacfa" //requires user_id addon
 #define POSTBRIBE                   @"/?vhg_action=a11359392dbc4a455dc8c7749467edb5"
 

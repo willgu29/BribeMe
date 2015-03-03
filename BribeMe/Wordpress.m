@@ -18,6 +18,7 @@
     {
         NSError *error = [NSError errorWithDomain:@"Please enter a username and password" code:101 userInfo:nil];
         [_delegate loginFailureWithError:error];
+        return;
     }
     
     
@@ -26,9 +27,51 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"username" : username, @"password" : password};
     [manager POST:encoded parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [_delegate loginSuccessWithID:responseObject[@"user_id"]];
+        NSLog(@"%@",responseObject);
+        NSString *errorString = responseObject[@"error"];
+        if (errorString)
+        {
+            NSError *error = [NSError errorWithDomain:errorString code:120 userInfo:nil];
+            [_delegate loginFailureWithError:error];
+            return;
+        }
+        else
+        {
+            [_delegate loginSuccessWithID:responseObject[@"user_id"]];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [_delegate loginFailureWithError:error];
+    }];
+    
+}
+
+-(void)createAccountWithUsername:(NSString *)username andPassword:(NSString *)password andDOB:(NSString *)dob
+{
+    if ([username isEqualToString:@""] || [password isEqualToString:@""] || [dob isEqualToString:@""])
+    {
+        NSError *error = [NSError errorWithDomain:@"Please enter a username and password" code:101 userInfo:nil];
+        [_delegate createAccountFailureWithError:error];
+        return;
+    }
+    NSString *createAccount = [NSString stringWithFormat:@"%@%@", kBMBASE_URL,createAccountAction];
+    NSString *encoded = [NSString stringWithUTF8String:[createAccount UTF8String]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"username" : username, @"password" : password, @"dob" : dob};
+    [manager POST:encoded parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSString *errorString = responseObject[@"error"];
+        if (errorString)
+        {
+            NSError *error = [NSError errorWithDomain:errorString code:120 userInfo:nil];
+            [_delegate createAccountFailureWithError:error];
+            return;
+        }
+        else
+        {
+            [_delegate createAccountSuccess];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [_delegate createAccountFailureWithError:error];
     }];
     
 }

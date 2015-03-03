@@ -32,7 +32,6 @@
 
 -(IBAction)testData:(UIButton *)sender
 {
-    [_wordpress loginWithUsername:@"WillGu" andPassword:@"admin123"];
 
 
 }

@@ -13,6 +13,9 @@
 
 -(void)loginSuccessWithID:(NSString *)userID;
 -(void)loginFailureWithError:(NSError *)error;
+-(void)createAccountSuccess;
+-(void)createAccountFailureWithError:(NSError *)error;
+
 
 @end
 
@@ -21,5 +24,6 @@
 
 @property (nonatomic,assign) id delegate;
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
+-(void)createAccountWithUsername:(NSString *)username andPassword:(NSString *)password andDOB:(NSString *)dob;
 
 @end

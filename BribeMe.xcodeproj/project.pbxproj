@@ -18,6 +18,8 @@
 		841A531A1AA160B60055F6CF /* BribesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A53181AA160B60055F6CF /* BribesViewController.xib */; };
 		842429EA1AA5250300129411 /* Wordpress.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429E91AA5250300129411 /* Wordpress.m */; };
 		842429F01AA52F4E00129411 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429EF1AA52F4E00129411 /* LoginViewController.m */; };
+		842429F41AA5351D00129411 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429F21AA5351D00129411 /* CreateAccountViewController.m */; };
+		842429F51AA5351D00129411 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842429F31AA5351D00129411 /* CreateAccountViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		842429E91AA5250300129411 /* Wordpress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wordpress.m; sourceTree = "<group>"; };
 		842429EE1AA52F4E00129411 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		842429EF1AA52F4E00129411 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		842429F11AA5351D00129411 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
+		842429F21AA5351D00129411 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
+		842429F31AA5351D00129411 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
 		A204A527EC139EA8EAE17824 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +167,9 @@
 				842429EE1AA52F4E00129411 /* LoginViewController.h */,
 				842429EF1AA52F4E00129411 /* LoginViewController.m */,
 				841A530C1AA156510055F6CF /* LoginViewController.xib */,
+				842429F11AA5351D00129411 /* CreateAccountViewController.h */,
+				842429F21AA5351D00129411 /* CreateAccountViewController.m */,
+				842429F31AA5351D00129411 /* CreateAccountViewController.xib */,
 			);
 			name = FirstUserSteps;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842429F51AA5351D00129411 /* CreateAccountViewController.xib in Resources */,
 				841A530E1AA156510055F6CF /* LoginViewController.xib in Resources */,
 				841A52F21AA155B00055F6CF /* Images.xcassets in Resources */,
 				841A531A1AA160B60055F6CF /* BribesViewController.xib in Resources */,
@@ -330,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841A53121AA1593F0055F6CF /* SwipeView.m in Sources */,
+				842429F41AA5351D00129411 /* CreateAccountViewController.m in Sources */,
 				841A52EA1AA155B00055F6CF /* AppDelegate.m in Sources */,
 				842429EA1AA5250300129411 /* Wordpress.m in Sources */,
 				842429F01AA52F4E00129411 /* LoginViewController.m in Sources */,
