@@ -48,9 +48,16 @@
     createAccountVC.wordpress = _wordpress;
     [self presentViewController:createAccountVC animated:YES completion:nil];
 }
--(IBAction)forgotPassword:(UIButton *)sender
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    return YES;
 }
 
 -(void)loginSuccessWithID:(NSString *)userID

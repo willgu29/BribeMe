@@ -1,5 +1,5 @@
 //
-//  LoginViewController.h
+//  SettingsUIViewController.h
 //  BribeMe
 //
 //  Created by William Gu on 3/2/15.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Wordpress.h"
 
-@interface LoginViewController : UIViewController <WordpressDelegate, UITextFieldDelegate>
+@interface SettingsUIViewController : UIViewController
 
 @end

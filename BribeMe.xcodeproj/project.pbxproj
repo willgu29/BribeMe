@@ -20,6 +20,10 @@
 		842429F01AA52F4E00129411 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429EF1AA52F4E00129411 /* LoginViewController.m */; };
 		842429F41AA5351D00129411 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429F21AA5351D00129411 /* CreateAccountViewController.m */; };
 		842429F51AA5351D00129411 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842429F31AA5351D00129411 /* CreateAccountViewController.xib */; };
+		842429F71AA587CC00129411 /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842429F61AA587CC00129411 /* TableView.xib */; };
+		842429FB1AA588FA00129411 /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429FA1AA588FA00129411 /* Converter.m */; };
+		84242A001AA58C3F00129411 /* SettingsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429FE1AA58C3F00129411 /* SettingsUIViewController.m */; };
+		84242A011AA58C3F00129411 /* SettingsUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842429FF1AA58C3F00129411 /* SettingsUIViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,12 @@
 		842429F11AA5351D00129411 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
 		842429F21AA5351D00129411 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		842429F31AA5351D00129411 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
+		842429F61AA587CC00129411 /* TableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableView.xib; sourceTree = "<group>"; };
+		842429F91AA588FA00129411 /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
+		842429FA1AA588FA00129411 /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
+		842429FD1AA58C3F00129411 /* SettingsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsUIViewController.h; sourceTree = "<group>"; };
+		842429FE1AA58C3F00129411 /* SettingsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsUIViewController.m; sourceTree = "<group>"; };
+		842429FF1AA58C3F00129411 /* SettingsUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsUIViewController.xib; sourceTree = "<group>"; };
 		A204A527EC139EA8EAE17824 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +131,8 @@
 		841A52E31AA155B00055F6CF /* BribeMe */ = {
 			isa = PBXGroup;
 			children = (
+				842429FC1AA58C2E00129411 /* Settings */,
+				842429F81AA588E000129411 /* Converters */,
 				842429E41AA523F900129411 /* ServerAPI */,
 				841A53141AA160750055F6CF /* Constants.h */,
 				841A53131AA159430055F6CF /* External */,
@@ -189,6 +201,7 @@
 				841A53161AA160B60055F6CF /* BribesViewController.h */,
 				841A53171AA160B60055F6CF /* BribesViewController.m */,
 				841A53181AA160B60055F6CF /* BribesViewController.xib */,
+				842429F61AA587CC00129411 /* TableView.xib */,
 			);
 			name = MainInterface;
 			sourceTree = "<group>";
@@ -200,6 +213,25 @@
 				842429E91AA5250300129411 /* Wordpress.m */,
 			);
 			name = ServerAPI;
+			sourceTree = "<group>";
+		};
+		842429F81AA588E000129411 /* Converters */ = {
+			isa = PBXGroup;
+			children = (
+				842429F91AA588FA00129411 /* Converter.h */,
+				842429FA1AA588FA00129411 /* Converter.m */,
+			);
+			name = Converters;
+			sourceTree = "<group>";
+		};
+		842429FC1AA58C2E00129411 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				842429FD1AA58C3F00129411 /* SettingsUIViewController.h */,
+				842429FE1AA58C3F00129411 /* SettingsUIViewController.m */,
+				842429FF1AA58C3F00129411 /* SettingsUIViewController.xib */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +318,8 @@
 			files = (
 				842429F51AA5351D00129411 /* CreateAccountViewController.xib in Resources */,
 				841A530E1AA156510055F6CF /* LoginViewController.xib in Resources */,
+				842429F71AA587CC00129411 /* TableView.xib in Resources */,
+				84242A011AA58C3F00129411 /* SettingsUIViewController.xib in Resources */,
 				841A52F21AA155B00055F6CF /* Images.xcassets in Resources */,
 				841A531A1AA160B60055F6CF /* BribesViewController.xib in Resources */,
 			);
@@ -341,9 +375,11 @@
 				841A53121AA1593F0055F6CF /* SwipeView.m in Sources */,
 				842429F41AA5351D00129411 /* CreateAccountViewController.m in Sources */,
 				841A52EA1AA155B00055F6CF /* AppDelegate.m in Sources */,
+				84242A001AA58C3F00129411 /* SettingsUIViewController.m in Sources */,
 				842429EA1AA5250300129411 /* Wordpress.m in Sources */,
 				842429F01AA52F4E00129411 /* LoginViewController.m in Sources */,
 				841A52E71AA155B00055F6CF /* main.m in Sources */,
+				842429FB1AA588FA00129411 /* Converter.m in Sources */,
 				841A53191AA160B60055F6CF /* BribesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

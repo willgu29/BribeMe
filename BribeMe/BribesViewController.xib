@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BribesViewController">
             <connections>
+                <outlet property="category" destination="Mhs-rI-Yxq" id="wjR-Wc-KXu"/>
+                <outlet property="searchBar" destination="D6p-gB-nyu" id="8UN-LF-cwI"/>
+                <outlet property="swipeView" destination="YfT-Ai-JgK" id="igq-Va-0o2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,13 +17,35 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dt-oC-Dd3">
-                    <rect key="frame" x="128" y="212" width="65" height="30"/>
-                    <state key="normal" title="Test Data">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfT-Ai-JgK" customClass="SwipeView">
+                    <rect key="frame" x="0.0" y="133" width="320" height="435"/>
+                    <color key="backgroundColor" red="0.087385006248950958" green="0.17710497975349426" blue="0.72760426998138428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="osR-q4-pYF"/>
+                        <outlet property="delegate" destination="-1" id="j1N-7G-Tig"/>
+                    </connections>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6p-gB-nyu">
+                    <rect key="frame" x="60" y="48" width="201" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="38E-Rt-BhJ"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-rI-Yxq">
+                    <rect key="frame" x="125" y="19" width="71" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aig-oa-7LO">
+                    <rect key="frame" x="255" y="19" width="57" height="30"/>
+                    <state key="normal" title="Settings">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="testData:" destination="-1" eventType="touchUpInside" id="V8g-8X-Ub6"/>
+                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="Ni4-V4-On8"/>
                     </connections>
                 </button>
             </subviews>

@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Wordpress.h"
+#import "SwipeView.h"
 
-@interface BribesViewController : UIViewController <WordpressDelegate>
+@interface BribesViewController : UIViewController <WordpressDelegate, SwipeViewDataSource, SwipeViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) IBOutlet SwipeView *swipeView;
+@property (nonatomic, weak) IBOutlet UILabel *category;
+@property (nonatomic, weak) IBOutlet UITextField *searchBar;
+
 
 @end

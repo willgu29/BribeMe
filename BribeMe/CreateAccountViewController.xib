@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateAccountViewController">
             <connections>
+                <outlet property="dob" destination="AzS-sQ-Vj4" id="8c9-dh-BcB"/>
+                <outlet property="password" destination="JRZ-lB-gsy" id="zrs-he-ZhQ"/>
+                <outlet property="spinner" destination="4gl-z8-kfN" id="wLt-7x-UlY"/>
+                <outlet property="username" destination="Rq5-ax-A3s" id="zwL-CS-sq3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +21,18 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRZ-lB-gsy">
                     <rect key="frame" x="61" y="98" width="198" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="9Y3-l0-vPM"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rq5-ax-A3s">
                     <rect key="frame" x="61" y="60" width="198" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="daI-FC-JJZ"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-5H-I42">
                     <rect key="frame" x="107" y="360" width="107" height="30"/>
@@ -39,6 +49,18 @@
                         <!--2015-03-03 00:25:31 +0000-->
                     </date>
                 </datePicker>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4gl-z8-kfN">
+                    <rect key="frame" x="150" y="332" width="20" height="20"/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPe-dK-3V1">
+                    <rect key="frame" x="8" y="8" width="62" height="44"/>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="79q-LA-txT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Wordpress.h"
 
-@interface CreateAccountViewController : UIViewController <WordpressDelegate>
+@interface CreateAccountViewController : UIViewController <WordpressDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) Wordpress *wordpress;
 
