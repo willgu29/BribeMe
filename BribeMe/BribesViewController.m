@@ -50,6 +50,9 @@
         [_wordpress getCategoryFromIndex:i];
     }
 
+    
+
+    
     //configure swipe view
     _swipeView.alignment = SwipeViewAlignmentCenter;
     _swipeView.pagingEnabled = YES;
@@ -98,7 +101,6 @@
 {
     _category.text = [Converter getCategoryFromIndex:swipeView.currentPage];
     _pageControl.currentPage = swipeView.currentPage;
-//    [_wordpress getCategoryFromIndex:swipeView.currentPage];
 
 }
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
@@ -113,6 +115,10 @@
         //note that it is only safe to use the reusingView if we return the same nib for each
         //item view, if different items have different contents, ignore the reusingView value
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.swipeView.bounds];
+        // Initialize the refresh control.
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+        [tableView addSubview:refreshControl];
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tag = index;
@@ -175,6 +181,11 @@
     return 230;
 }
 
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"CAlled");
+    [_wordpress getCategoryFromIndex:_swipeView.currentPage];
+    [refreshControl endRefreshing];
+}
 
 
 @end
