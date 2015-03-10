@@ -15,7 +15,8 @@
 -(void)loginFailureWithError:(NSError *)error;
 -(void)createAccountSuccess;
 -(void)createAccountFailureWithError:(NSError *)error;
-
+-(void)fetchCategorySuccess:(NSArray *)data;
+-(void)fetchCategoryFailure:(NSError *)error;
 
 @end
 
@@ -25,5 +26,6 @@
 @property (nonatomic,assign) id delegate;
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
 -(void)createAccountWithUsername:(NSString *)username andPassword:(NSString *)password andDOB:(NSString *)dob;
+-(void)getCategoryFromIndex:(NSInteger)index;
 
 @end

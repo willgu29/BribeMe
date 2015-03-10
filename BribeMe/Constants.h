@@ -23,5 +23,12 @@
 #define GETSHOPPING                 @"/?vhg_action=a9a2057fc0671aa00fa1d5905d9ff70c"
 #define GETSERVICES                 @"/?vhg_action=ab88757ccd9ed00caf8900b0f8fdb296"
 
+#define FEATURED  0
+#define DINING 1
+#define NIGHTLIFE 2
+#define SHOPPING 3
+#define SERVICES 4
+
+
 
 #endif

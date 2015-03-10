@@ -34,6 +34,7 @@
     _swipeView.pagingEnabled = YES;
     _swipeView.itemsPerPage = 1;
     _swipeView.truncateFinalPage = YES;
+    [self swipeViewCurrentItemIndexDidChange:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,15 +47,30 @@
     [self presentViewController:settingsVC animated:YES completion:nil];
 }
 
+
+#pragma mark - Wordpress Delegate
+-(void)fetchCategorySuccess:(NSArray *)data
+{
+    NSLog(@"Data: %@", data);
+}
+-(void)fetchCategoryFailure:(NSError *)error
+{
+    NSLog(@"Error: %@", error);
+}
+
+#pragma mark - Swipe View
+
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView
 {
     return [_categories count]; 
 }
 
+
 -(void)swipeViewCurrentItemIndexDidChange:(SwipeView *)swipeView
 {
     _category.text = [Converter getCategoryFromIndex:swipeView.currentPage];
     _pageControl.currentPage = swipeView.currentPage;
+    [_wordpress getCategoryFromIndex:swipeView.currentPage];
 }
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
@@ -78,6 +94,8 @@
 {
     return self.swipeView.bounds.size;
 }
+
+#pragma mark - Tableview
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

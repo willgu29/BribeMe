@@ -76,6 +76,30 @@
     
 }
 
+-(void)getCategoryFromIndex:(NSInteger)index
+{
+    if (index == FEATURED)
+    {
+        [self getFeatured];
+    }
+    else if (index == DINING)
+    {
+        [self getDining];
+    }
+    else if (index == NIGHTLIFE)
+    {
+        [self getNightlife];
+    }
+    else if (index == SHOPPING)
+    {
+        [self getShopping];
+    }
+    else if (index == SERVICES)
+    {
+        [self getServices];
+    }
+}
+
 -(void)getMyBribes
 {
     
@@ -85,47 +109,43 @@
     NSString *getFeatured = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETFEATURED];
     
     NSString *featuredEncoded = [NSString stringWithUTF8String:[getFeatured UTF8String]];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:featuredEncoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Object Success: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fetch Failure: %@", error);
-    }];
-
+    [self sendRequestFor:featuredEncoded];
 }
 -(void)getDining
 {
-    
+    NSString *getDining = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETDINING];
+    NSString *diningEncoded = [NSString stringWithUTF8String:[getDining UTF8String]];
+    [self sendRequestFor:diningEncoded];
 }
 -(void)getNightlife
 {
     NSString *getNightlife = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETNIGHTLIFE];
     NSString *nightlifeEncoded = [NSString stringWithUTF8String:[getNightlife UTF8String]];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:nightlifeEncoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Object Success: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fetch Failure: %@", error);
-    }];
+    [self sendRequestFor:nightlifeEncoded];
 
 }
 -(void)getShopping
 {
-    
+    NSString *getNightlife = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETNIGHTLIFE];
+    NSString *nightlifeEncoded = [NSString stringWithUTF8String:[getNightlife UTF8String]];
+    [self sendRequestFor:nightlifeEncoded];
 }
 -(void)getServices
 {
     NSString *getServices = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETSERVICES];
     NSString *servicesEncoded = [NSString stringWithUTF8String:[getServices UTF8String]];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:servicesEncoded parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Object Success: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fetch Failure: %@", error);
-    }];
+    [self sendRequestFor:servicesEncoded];
 
 }
-
+-(void)sendRequestFor:(NSString *)encodedURL
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:encodedURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [_delegate fetchCategorySuccess:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [_delegate fetchCategoryFailure:error];
+    }];
+}
 
 
 @end
