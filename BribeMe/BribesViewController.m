@@ -146,9 +146,15 @@
     }
     NSMutableArray *category = [_categoryContainer objectAtIndex:tableView.tag];
     NSDictionary *bribe = [category objectAtIndex:indexPath.row];
+    
+    cell.title.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.title.numberOfLines = 2;
+    
     cell.title.text = [bribe valueForKey:@"post_content"];
-//    cell.username.text = [category valueForKey:@"author_name"];
-//    [cell.featured sd_setImageWithURL:<#(NSURL *)#> placeholderImage:<#(UIImage *)#>]
+    cell.username.text = [bribe valueForKey:@"author_name"];
+    NSArray *image = [bribe valueForKey:@"author_image"];
+    NSURL *encodedImageURL = [NSURL URLWithString:[image firstObject]];
+    [cell.featured sd_setImageWithURL:encodedImageURL];
     return cell;
 }
 
