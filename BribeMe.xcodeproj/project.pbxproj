@@ -23,6 +23,9 @@
 		842429FB1AA588FA00129411 /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429FA1AA588FA00129411 /* Converter.m */; };
 		84242A001AA58C3F00129411 /* SettingsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842429FE1AA58C3F00129411 /* SettingsUIViewController.m */; };
 		84242A011AA58C3F00129411 /* SettingsUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842429FF1AA58C3F00129411 /* SettingsUIViewController.xib */; };
+		84242A0D1AAE9CA000129411 /* BribeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84242A0B1AAE9CA000129411 /* BribeTableViewCell.m */; };
+		84242A0E1AAE9CA000129411 /* BribeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A0C1AAE9CA000129411 /* BribeTableViewCell.xib */; };
+		84242A111AAEB1FA00129411 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84242A101AAEB1FA00129411 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,10 @@
 		842429FD1AA58C3F00129411 /* SettingsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsUIViewController.h; sourceTree = "<group>"; };
 		842429FE1AA58C3F00129411 /* SettingsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsUIViewController.m; sourceTree = "<group>"; };
 		842429FF1AA58C3F00129411 /* SettingsUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsUIViewController.xib; sourceTree = "<group>"; };
+		84242A0A1AAE9CA000129411 /* BribeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BribeTableViewCell.h; sourceTree = "<group>"; };
+		84242A0B1AAE9CA000129411 /* BribeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BribeTableViewCell.m; sourceTree = "<group>"; };
+		84242A0C1AAE9CA000129411 /* BribeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BribeTableViewCell.xib; sourceTree = "<group>"; };
+		84242A101AAEB1FA00129411 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A204A527EC139EA8EAE17824 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84242A111AAEB1FA00129411 /* ImageIO.framework in Frameworks */,
 				34B2D6BF30921FFE233995BF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +109,7 @@
 		83B9FD84F2F74FFB3E87E6DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84242A101AAEB1FA00129411 /* ImageIO.framework */,
 				51AC9814845E1B3BC57B2354 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -196,6 +205,7 @@
 		841A53151AA160830055F6CF /* MainInterface */ = {
 			isa = PBXGroup;
 			children = (
+				84242A091AAE9C8000129411 /* CellDesign */,
 				841A53161AA160B60055F6CF /* BribesViewController.h */,
 				841A53171AA160B60055F6CF /* BribesViewController.m */,
 				841A53181AA160B60055F6CF /* BribesViewController.xib */,
@@ -229,6 +239,16 @@
 				842429FF1AA58C3F00129411 /* SettingsUIViewController.xib */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		84242A091AAE9C8000129411 /* CellDesign */ = {
+			isa = PBXGroup;
+			children = (
+				84242A0A1AAE9CA000129411 /* BribeTableViewCell.h */,
+				84242A0B1AAE9CA000129411 /* BribeTableViewCell.m */,
+				84242A0C1AAE9CA000129411 /* BribeTableViewCell.xib */,
+			);
+			name = CellDesign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +335,7 @@
 			files = (
 				842429F51AA5351D00129411 /* CreateAccountViewController.xib in Resources */,
 				841A530E1AA156510055F6CF /* LoginViewController.xib in Resources */,
+				84242A0E1AAE9CA000129411 /* BribeTableViewCell.xib in Resources */,
 				84242A011AA58C3F00129411 /* SettingsUIViewController.xib in Resources */,
 				841A52F21AA155B00055F6CF /* Images.xcassets in Resources */,
 				841A531A1AA160B60055F6CF /* BribesViewController.xib in Resources */,
@@ -368,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84242A0D1AAE9CA000129411 /* BribeTableViewCell.m in Sources */,
 				841A53121AA1593F0055F6CF /* SwipeView.m in Sources */,
 				842429F41AA5351D00129411 /* CreateAccountViewController.m in Sources */,
 				841A52EA1AA155B00055F6CF /* AppDelegate.m in Sources */,

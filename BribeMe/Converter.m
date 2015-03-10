@@ -36,4 +36,30 @@
     
 }
 
++(NSString *)getCategoryKeyFromIndex:(int)index
+{
+    if (index == 0)
+    {
+        return @"featured";
+    }
+    else if (index == 1)
+    {
+        return @"dinning";
+    }
+    else if (index == 2)
+    {
+        return @"nightlife";
+    }
+    else if (index == 3)
+    {
+        return @"shopping";
+    }
+    else if (index == 4)
+    {
+        return @"services";
+    }
+    return @"NONESET";
+    
+}
+
 @end

@@ -9,6 +9,7 @@
 #import "Constants.h"
 #import "Wordpress.h"
 #import <AFNetworking/AFNetworking.h>
+#import "Converter.h"
 @implementation Wordpress
 
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password
@@ -109,39 +110,44 @@
     NSString *getFeatured = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETFEATURED];
     
     NSString *featuredEncoded = [NSString stringWithUTF8String:[getFeatured UTF8String]];
-    [self sendRequestFor:featuredEncoded];
+    [self sendRequestFor:featuredEncoded andKeyIndex:FEATURED];
 }
 -(void)getDining
 {
     NSString *getDining = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETDINING];
     NSString *diningEncoded = [NSString stringWithUTF8String:[getDining UTF8String]];
-    [self sendRequestFor:diningEncoded];
+    [self sendRequestFor:diningEncoded andKeyIndex:DINING];
 }
 -(void)getNightlife
 {
     NSString *getNightlife = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETNIGHTLIFE];
     NSString *nightlifeEncoded = [NSString stringWithUTF8String:[getNightlife UTF8String]];
-    [self sendRequestFor:nightlifeEncoded];
+    [self sendRequestFor:nightlifeEncoded andKeyIndex:NIGHTLIFE];
 
 }
 -(void)getShopping
 {
-    NSString *getNightlife = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETNIGHTLIFE];
-    NSString *nightlifeEncoded = [NSString stringWithUTF8String:[getNightlife UTF8String]];
-    [self sendRequestFor:nightlifeEncoded];
+    NSString *getShopping = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETSHOPPING];
+    NSString *shoppingEncoded = [NSString stringWithUTF8String:[getShopping UTF8String]];
+    [self sendRequestFor:shoppingEncoded andKeyIndex:SHOPPING];
 }
 -(void)getServices
 {
     NSString *getServices = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETSERVICES];
     NSString *servicesEncoded = [NSString stringWithUTF8String:[getServices UTF8String]];
-    [self sendRequestFor:servicesEncoded];
+    [self sendRequestFor:servicesEncoded andKeyIndex:SERVICES];
 
 }
--(void)sendRequestFor:(NSString *)encodedURL
+-(void)sendRequestFor:(NSString *)encodedURL andKeyIndex:(NSInteger)index
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:encodedURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [_delegate fetchCategorySuccess:responseObject];
+        NSMutableArray *data = [[NSMutableArray alloc] init];
+        for (id object in [responseObject valueForKey:[Converter getCategoryKeyFromIndex:index]])
+        {
+            [data addObject:object];
+        }
+        [_delegate fetchCategorySuccess:data withIndex:index];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [_delegate fetchCategoryFailure:error];
     }];

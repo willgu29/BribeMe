@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BribeMe-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BribeMe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,7 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BribeMeTests-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BribeMeTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>26D7C6189A597610816B7E5D</key>
+		<key>044CE127B2085402F6809704</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C8248264558C362490DBEE3</key>
+		<key>0593F4AFE3E3BE1C550EB938</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81A42A9E00E69D7CBEFA7BBF</key>
+		<key>3B54C27E5D299480AD0E1535</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4AFE81AA0F821D8874E24B5</key>
+		<key>5200BE8602732CEE4475A997</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2E389B53037644E9A9C061F</key>
+		<key>8B6D469B44B1A9D7F2C7669D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5D1994749F50EDBAEEB6660</key>
+		<key>90EA26CD3AE97F49122B3318</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EA72FDD3D31B0DB30BBBD91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D47E967F5A2BEC126AFB6BC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8E2AB04024376B714CEA13B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

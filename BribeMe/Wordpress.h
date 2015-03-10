@@ -15,7 +15,7 @@
 -(void)loginFailureWithError:(NSError *)error;
 -(void)createAccountSuccess;
 -(void)createAccountFailureWithError:(NSError *)error;
--(void)fetchCategorySuccess:(NSArray *)data;
+-(void)fetchCategorySuccess:(NSArray *)data withIndex:(NSInteger)index;
 -(void)fetchCategoryFailure:(NSError *)error;
 
 @end

@@ -11,12 +11,22 @@
 #import "Constants.h"
 #import "Converter.h"
 #import "SettingsUIViewController.h"
+#import "BribeTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BribesViewController ()
 
 
 @property (nonatomic, strong) Wordpress *wordpress;
 @property (nonatomic, strong) NSArray *categories; //services,nightlife, etc.
+
+@property (nonatomic, strong) NSMutableArray *categoryContainer;
+@property (nonatomic, strong) NSMutableArray *featured;
+@property (nonatomic, strong) NSMutableArray *dining;
+@property (nonatomic, strong) NSMutableArray *nightlife;
+@property (nonatomic, strong) NSMutableArray *shopping;
+@property (nonatomic, strong) NSMutableArray *services;
+
 
 @end
 
@@ -29,11 +39,23 @@
     _wordpress.delegate = self;
     _categories = @[@"Featured", @"Dining", @"Nightlife", @"Shopping", @"Services"];
     
+    _featured = [[NSMutableArray alloc] init];
+    _dining = [[NSMutableArray alloc] init];
+    _nightlife = [[NSMutableArray alloc] init];
+    _shopping = [[NSMutableArray alloc] init];
+    _services = [[NSMutableArray alloc] init];
+    _categoryContainer = [[NSMutableArray alloc] initWithArray:@[_featured,_dining,_nightlife,_shopping,_services]];
+    for (int i = 0; i < [_categoryContainer count]; i++)
+    {
+        [_wordpress getCategoryFromIndex:i];
+    }
+
     //configure swipe view
     _swipeView.alignment = SwipeViewAlignmentCenter;
     _swipeView.pagingEnabled = YES;
     _swipeView.itemsPerPage = 1;
     _swipeView.truncateFinalPage = YES;
+    _swipeView.wrapEnabled = YES;
     [self swipeViewCurrentItemIndexDidChange:0];
 }
 
@@ -49,9 +71,15 @@
 
 
 #pragma mark - Wordpress Delegate
--(void)fetchCategorySuccess:(NSArray *)data
+-(void)fetchCategorySuccess:(NSArray *)data withIndex:(NSInteger)index
 {
-    NSLog(@"Data: %@", data);
+    NSMutableArray *category = [_categoryContainer objectAtIndex:index];
+    category = data.mutableCopy;
+    [_categoryContainer replaceObjectAtIndex:index withObject:category];
+    
+    UIView *viewItem = [_swipeView itemViewAtIndex:index];
+    UITableView *tableView = [viewItem.subviews lastObject];
+    [tableView reloadData];
 }
 -(void)fetchCategoryFailure:(NSError *)error
 {
@@ -70,11 +98,13 @@
 {
     _category.text = [Converter getCategoryFromIndex:swipeView.currentPage];
     _pageControl.currentPage = swipeView.currentPage;
-    [_wordpress getCategoryFromIndex:swipeView.currentPage];
+//    [_wordpress getCategoryFromIndex:swipeView.currentPage];
+
 }
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-    
+    NSLog(@"Index: %d", index);
+    view = nil;
     if (view == nil)
     {
         //load new item view instance from nib
@@ -85,9 +115,12 @@
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.swipeView.bounds];
         tableView.delegate = self;
         tableView.dataSource = self;
+        tableView.tag = index;
         [view addSubview:tableView];
+        [_wordpress getCategoryFromIndex:index];
 
     }
+
     return view;
 }
 - (CGSize)swipeViewItemSize:(SwipeView *)swipeView
@@ -97,21 +130,42 @@
 
 #pragma mark - Tableview
 
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    NSMutableArray *category = [_categoryContainer objectAtIndex:tableView.tag];
+    return [category count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *simpleTableIdentifier = [NSString stringWithFormat:@"%ld_%ld", (long)indexPath.section, (long)indexPath.row];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    BribeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
-        
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BribeTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
-    cell.textLabel.text = @"Placeholder for bribes";
+    NSMutableArray *category = [_categoryContainer objectAtIndex:tableView.tag];
+    NSDictionary *bribe = [category objectAtIndex:indexPath.row];
+    cell.title.text = [bribe valueForKey:@"post_content"];
+//    cell.username.text = [category valueForKey:@"author_name"];
+//    [cell.featured sd_setImageWithURL:<#(NSURL *)#> placeholderImage:<#(UIImage *)#>]
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 230;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 230;
+}
+
+
 
 @end

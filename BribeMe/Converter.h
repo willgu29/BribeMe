@@ -11,5 +11,6 @@
 @interface Converter : NSObject
 
 +(NSString *)getCategoryFromIndex:(int)index;
++(NSString *)getCategoryKeyFromIndex:(int)index;
 
 @end
