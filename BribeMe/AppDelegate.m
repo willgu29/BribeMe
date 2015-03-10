@@ -20,7 +20,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    if (true) { //user logged in
+    BOOL isLoggedIn = [[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedIn"];
+    if (isLoggedIn) { //user logged in
         //Main view
         BribesViewController *bribesVC = [[BribesViewController alloc] init];
         self.window.rootViewController = bribesVC;

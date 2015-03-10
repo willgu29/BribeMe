@@ -71,6 +71,12 @@
 -(void)loginSuccessWithID:(NSString *)userID
 {
     [_spinner stopAnimating];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"user_id"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLoggedIn"];
+    [[NSUserDefaults standardUserDefaults] setObject:_username.text forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] setObject:_password.text forKey:@"password"];
+    
     BribesViewController *bribesVC= [[BribesViewController alloc] initWithNibName:@"BribesViewController" bundle:nil];
     [self presentViewController:bribesVC animated:YES completion:nil];
     

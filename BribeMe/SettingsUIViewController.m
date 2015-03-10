@@ -7,6 +7,7 @@
 //
 
 #import "SettingsUIViewController.h"
+#import "LoginViewController.h"
 
 @interface SettingsUIViewController ()
 
@@ -26,8 +27,12 @@
 
 -(IBAction)logout:(UIButton *)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Not configured yet!" message:@"Will be soon" delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
-    [alertView show];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user_id"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isLoggedIn"];
+    LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 -(IBAction)back:(UIButton *)sender
 {
