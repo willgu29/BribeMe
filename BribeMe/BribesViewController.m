@@ -150,11 +150,14 @@
     cell.title.lineBreakMode = NSLineBreakByWordWrapping;
     cell.title.numberOfLines = 2;
     
+    
+    
+//    cell.title.text = [NSString stringWithFormat:@"%d",[bribe valueForKey:@"post_id"]];
     cell.title.text = [bribe valueForKey:@"post_content"];
     cell.username.text = [bribe valueForKey:@"author_name"];
     NSArray *image = [bribe valueForKey:@"author_image"];
     NSURL *encodedImageURL = [NSURL URLWithString:[image firstObject]];
-    [cell.featured sd_setImageWithURL:encodedImageURL];
+    [cell.profileLogo sd_setImageWithURL:encodedImageURL];
     return cell;
 }
 
