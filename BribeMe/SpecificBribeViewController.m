@@ -20,7 +20,9 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
-@property (nonatomic, weak) IBOutlet UIButton *acceptBribe;
+@property (nonatomic, weak) IBOutlet UIButton *bribeButton;
+
+@property (nonatomic, strong) Wordpress *wordpress;
 
 @end
 
@@ -29,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _wordpress = [[Wordpress alloc] init];
+    _wordpress.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -43,6 +47,7 @@
 
 -(void)setupIBOutlets
 {
+    [self setupBribeButton];
     _postTitle.text = @"Not yet available";
     _postContent.text = [_bribe valueForKey:B_post_content];
     _businessName.text = [_bribe valueForKey:B_author_name];
@@ -54,8 +59,44 @@
     NSURL *featuredImage = [_bribe valueForKey:B_featured_image];
     [_featuredImage sd_setImageWithURL:featuredImage];
 }
+-(void)setupBribeButton
+{
+    if ([self isMyBribe])
+    {
+        [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_bribeButton setTitle:@"Accept Bribe" forState:UIControlStateNormal];
+    }
+}
+-(BOOL)isMyBribe
+{
+    NSNumber *isBribe = [_bribe objectForKey:B_is_mybribe];
+    if ([isBribe isEqualToNumber:[NSNumber numberWithInt:1]])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
 
 #pragma mark -IBActions
+
+-(IBAction)acceptBribe:(UIButton *)sender
+{
+    sender.enabled = NO;
+    if ([self isMyBribe] || [_bribeButton.titleLabel.text isEqualToString:@"Redeem Bribe"])
+    {
+        [_wordpress postToCategory:REDEEMBRIBE andPostID:[_bribe valueForKey:B_post_id]];
+    }
+    else
+    {
+        [_wordpress postToCategory:ACCEPTBRIBE andPostID:[_bribe valueForKey:B_post_id]];
+    }
+}
 
 -(IBAction)share:(UIButton *)sender
 {
@@ -68,5 +109,27 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark -Wordpress Delegates
+-(void)postBribeSuccess:(id)success
+{
+    if ([self isMyBribe])
+    {
+        
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your bribe has been accepted and can be redeemed now!" delegate:nil cancelButtonTitle:@"Okay!"otherButtonTitles:nil];
+        [alertView show];
+        [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
+
+    }
+    NSLog(@"Success: %@", success);
+    _bribeButton.enabled = YES;
+}
+-(void)postBribeFailure:(NSError *)error
+{
+    NSLog(@"Error: %@", error);
+    _bribeButton.enabled = YES;
+}
 
 @end

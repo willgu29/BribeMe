@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wordpress.h"
 
-@interface SpecificBribeViewController : UIViewController
+@interface SpecificBribeViewController : UIViewController <WordpressDelegate>
 
 @property (nonatomic, strong) NSDictionary *bribe; //must pass down bribe
 

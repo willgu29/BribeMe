@@ -17,6 +17,8 @@
 -(void)createAccountFailureWithError:(NSError *)error;
 -(void)fetchCategorySuccess:(NSArray *)data withIndex:(NSInteger)index;
 -(void)fetchCategoryFailure:(NSError *)error;
+-(void)postBribeSuccess:(id)success;
+-(void)postBribeFailure:(NSError *)error;
 
 @end
 
@@ -27,5 +29,6 @@
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
 -(void)createAccountWithUsername:(NSString *)username andPassword:(NSString *)password andDOB:(NSString *)dob;
 -(void)getCategoryFromIndex:(NSInteger)index;
+-(void)postToCategory:(NSInteger)index andPostID:(NSString *)post_id;
 
 @end
