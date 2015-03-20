@@ -160,15 +160,12 @@
     
     
     
-//    cell.title.text = [NSString stringWithFormat:@"%d",[bribe valueForKey:@"post_id"]];
     cell.title.text = [bribe valueForKey:@"post_content"];
     cell.username.text = [bribe valueForKey:@"author_name"];
     NSArray *image = [bribe valueForKey:@"author_image"];
     NSURL *encodedImageURL = [NSURL URLWithString:[image firstObject]];
     [cell.profileLogo sd_setImageWithURL:encodedImageURL];
 
-    NSLog(@"bribe %@:", bribe);
-    NSLog(@"Image: %@", [bribe valueForKey:@"featured_image"]);
     NSURL *featuredImage = [bribe valueForKey:@"featured_image"];
     [cell.featured sd_setImageWithURL:featuredImage];
     
@@ -190,10 +187,11 @@
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
-    NSLog(@"CAlled");
+    NSLog(@"Called");
     [_wordpress getCategoryFromIndex:_swipeView.currentPage];
     [refreshControl endRefreshing];
 }
+
 
 
 @end

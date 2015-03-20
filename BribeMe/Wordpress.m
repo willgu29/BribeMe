@@ -107,12 +107,13 @@
 
 -(void)getMyBribes
 {
-    
+    NSString *getMyBribes = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETMYBRIBES];
+    NSString *myBribesEncoded = [NSString stringWithUTF8String:[getMyBribes UTF8String]];
+    [self sendRequestFor:myBribesEncoded andKeyIndex:MYBRIBES];
 }
 -(void)getFeatured
 {
     NSString *getFeatured = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETFEATURED];
-    
     NSString *featuredEncoded = [NSString stringWithUTF8String:[getFeatured UTF8String]];
     [self sendRequestFor:featuredEncoded andKeyIndex:FEATURED];
 }
@@ -145,7 +146,12 @@
 -(void)sendRequestFor:(NSString *)encodedURL andKeyIndex:(NSInteger)index
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:encodedURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *params;
+    if (index == MYBRIBES)
+    {
+        params = @{@"user_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"]};
+    }
+    [manager GET:encodedURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *data = [[NSMutableArray alloc] init];
         for (id object in [responseObject valueForKey:[Converter getCategoryKeyFromIndex:index]])
         {

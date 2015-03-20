@@ -45,7 +45,7 @@
 {
     if (index == MYBRIBES)
     {
-        
+        return @"mybribe";
     }
     else if (index == FEATURED)
     {
