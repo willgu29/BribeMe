@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSArray *categories; //services,nightlife, etc.
 
 @property (nonatomic, strong) NSMutableArray *categoryContainer;
+@property (nonatomic, strong) NSMutableArray *myBribes;
 @property (nonatomic, strong) NSMutableArray *featured;
 @property (nonatomic, strong) NSMutableArray *dining;
 @property (nonatomic, strong) NSMutableArray *nightlife;
@@ -37,14 +38,15 @@
     
     _wordpress = [[Wordpress alloc] init];
     _wordpress.delegate = self;
-    _categories = @[@"Featured", @"Dining", @"Nightlife", @"Shopping", @"Services"];
+    _categories = @[@"My Bribes", @"Featured", @"Dining", @"Nightlife", @"Shopping", @"Services"];
     
+    _myBribes = [[NSMutableArray alloc] init];
     _featured = [[NSMutableArray alloc] init];
     _dining = [[NSMutableArray alloc] init];
     _nightlife = [[NSMutableArray alloc] init];
     _shopping = [[NSMutableArray alloc] init];
     _services = [[NSMutableArray alloc] init];
-    _categoryContainer = [[NSMutableArray alloc] initWithArray:@[_featured,_dining,_nightlife,_shopping,_services]];
+    _categoryContainer = [[NSMutableArray alloc] initWithArray:@[_myBribes, _featured,_dining,_nightlife,_shopping,_services]];
     for (int i = 0; i < [_categoryContainer count]; i++)
     {
         [_wordpress getCategoryFromIndex:i];
@@ -164,6 +166,12 @@
     NSArray *image = [bribe valueForKey:@"author_image"];
     NSURL *encodedImageURL = [NSURL URLWithString:[image firstObject]];
     [cell.profileLogo sd_setImageWithURL:encodedImageURL];
+
+    NSLog(@"bribe %@:", bribe);
+    NSLog(@"Image: %@", [bribe valueForKey:@"featured_image"]);
+    NSURL *featuredImage = [bribe valueForKey:@"featured_image"];
+    [cell.featured sd_setImageWithURL:featuredImage];
+    
     return cell;
 }
 

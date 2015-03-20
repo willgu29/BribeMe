@@ -7,28 +7,33 @@
 //
 
 #import "Converter.h"
+#import "Constants.h"
 
 @implementation Converter
 
 +(NSString *)getCategoryFromIndex:(int)index
 {
-    if (index == 0)
+    if (index == MYBRIBES)
+    {
+        return @"My Bribes";
+    }
+    else if (index == FEATURED)
     {
         return @"Featured";
     }
-    else if (index == 1)
+    else if (index == DINING)
     {
         return @"Dining";
     }
-    else if (index == 2)
+    else if (index == NIGHTLIFE)
     {
         return @"Nightlife";
     }
-    else if (index == 3)
+    else if (index == SHOPPING)
     {
         return @"Shopping";
     }
-    else if (index == 4)
+    else if (index == SERVICES)
     {
         return @"Services";
     }
@@ -38,23 +43,27 @@
 
 +(NSString *)getCategoryKeyFromIndex:(int)index
 {
-    if (index == 0)
+    if (index == MYBRIBES)
+    {
+        
+    }
+    else if (index == FEATURED)
     {
         return @"featured";
     }
-    else if (index == 1)
+    else if (index == DINING)
     {
         return @"dinning";
     }
-    else if (index == 2)
+    else if (index == NIGHTLIFE)
     {
         return @"nightlife";
     }
-    else if (index == 3)
+    else if (index == SHOPPING)
     {
         return @"shopping";
     }
-    else if (index == 4)
+    else if (index == SERVICES)
     {
         return @"services";
     }

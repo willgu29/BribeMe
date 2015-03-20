@@ -79,7 +79,11 @@
 
 -(void)getCategoryFromIndex:(NSInteger)index
 {
-    if (index == FEATURED)
+    if (index == MYBRIBES)
+    {
+        [self getMyBribes];
+    }
+    else if (index == FEATURED)
     {
         [self getFeatured];
     }
