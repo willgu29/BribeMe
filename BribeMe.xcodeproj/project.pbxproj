@@ -26,6 +26,8 @@
 		84242A0D1AAE9CA000129411 /* BribeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84242A0B1AAE9CA000129411 /* BribeTableViewCell.m */; };
 		84242A0E1AAE9CA000129411 /* BribeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84242A0C1AAE9CA000129411 /* BribeTableViewCell.xib */; };
 		84242A111AAEB1FA00129411 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84242A101AAEB1FA00129411 /* ImageIO.framework */; };
+		84336D5C1ABCD51600F18E76 /* SpecificBribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84336D5A1ABCD51600F18E76 /* SpecificBribeViewController.m */; };
+		84336D5D1ABCD51600F18E76 /* SpecificBribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84336D5B1ABCD51600F18E76 /* SpecificBribeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,9 @@
 		84242A0B1AAE9CA000129411 /* BribeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BribeTableViewCell.m; sourceTree = "<group>"; };
 		84242A0C1AAE9CA000129411 /* BribeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BribeTableViewCell.xib; sourceTree = "<group>"; };
 		84242A101AAEB1FA00129411 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		84336D591ABCD51600F18E76 /* SpecificBribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificBribeViewController.h; sourceTree = "<group>"; };
+		84336D5A1ABCD51600F18E76 /* SpecificBribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificBribeViewController.m; sourceTree = "<group>"; };
+		84336D5B1ABCD51600F18E76 /* SpecificBribeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecificBribeViewController.xib; sourceTree = "<group>"; };
 		A204A527EC139EA8EAE17824 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +214,9 @@
 				841A53161AA160B60055F6CF /* BribesViewController.h */,
 				841A53171AA160B60055F6CF /* BribesViewController.m */,
 				841A53181AA160B60055F6CF /* BribesViewController.xib */,
+				84336D591ABCD51600F18E76 /* SpecificBribeViewController.h */,
+				84336D5A1ABCD51600F18E76 /* SpecificBribeViewController.m */,
+				84336D5B1ABCD51600F18E76 /* SpecificBribeViewController.xib */,
 			);
 			name = MainInterface;
 			sourceTree = "<group>";
@@ -333,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84336D5D1ABCD51600F18E76 /* SpecificBribeViewController.xib in Resources */,
 				842429F51AA5351D00129411 /* CreateAccountViewController.xib in Resources */,
 				841A530E1AA156510055F6CF /* LoginViewController.xib in Resources */,
 				84242A0E1AAE9CA000129411 /* BribeTableViewCell.xib in Resources */,
@@ -390,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84242A0D1AAE9CA000129411 /* BribeTableViewCell.m in Sources */,
+				84336D5C1ABCD51600F18E76 /* SpecificBribeViewController.m in Sources */,
 				841A53121AA1593F0055F6CF /* SwipeView.m in Sources */,
 				842429F41AA5351D00129411 /* CreateAccountViewController.m in Sources */,
 				841A52EA1AA155B00055F6CF /* AppDelegate.m in Sources */,

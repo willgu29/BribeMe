@@ -13,6 +13,7 @@
 #import "SettingsUIViewController.h"
 #import "BribeTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SpecificBribeViewController.h"
 
 @interface BribesViewController ()
 
@@ -139,6 +140,17 @@
 #pragma mark - Tableview
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableArray *category = [_categoryContainer objectAtIndex:tableView.tag];
+    NSDictionary *bribe = [category objectAtIndex:indexPath.row];
+    SpecificBribeViewController *specificBribeVC = [[SpecificBribeViewController alloc] initWithNibName:@"SpecificBribeViewController" bundle:nil];
+    specificBribeVC.bribe = bribe;
+    [self presentViewController:specificBribeVC animated:YES completion:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSMutableArray *category = [_categoryContainer objectAtIndex:tableView.tag];
@@ -160,13 +172,13 @@
     
     
     
-    cell.title.text = [bribe valueForKey:@"post_content"];
-    cell.username.text = [bribe valueForKey:@"author_name"];
-    NSArray *image = [bribe valueForKey:@"author_image"];
+    cell.title.text = [bribe valueForKey:B_post_content];
+    cell.username.text = [bribe valueForKey:B_author_name];
+    NSArray *image = [bribe valueForKey:B_author_image];
     NSURL *encodedImageURL = [NSURL URLWithString:[image firstObject]];
     [cell.profileLogo sd_setImageWithURL:encodedImageURL];
 
-    NSURL *featuredImage = [bribe valueForKey:@"featured_image"];
+    NSURL *featuredImage = [bribe valueForKey:B_featured_image];
     [cell.featured sd_setImageWithURL:featuredImage];
     
     return cell;
@@ -174,7 +186,7 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

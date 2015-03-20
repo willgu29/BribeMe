@@ -31,5 +31,15 @@
 #define SERVICES 5
 
 
+//Bribe Value Keys
+#define B_author_id @"author_id"
+#define B_author_image @"author_image"
+#define B_author_name @"author_name"
+#define B_expire_in @"expire_in"
+#define B_featured_image @"featured_image"
+#define B_is_mybribe @"is_mybribe"
+#define B_post_content @"post_content"
+#define B_post_id @"post_id"
+
 
 #endif
