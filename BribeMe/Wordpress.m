@@ -193,7 +193,15 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:encodedURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [_delegate postBribeSuccess:responseObject];
+        if ([[responseObject valueForKey:@"success"] isEqualToString:@"success"])
+        {
+            [_delegate postBribeSuccess:index];
+        }
+        else
+        {
+            NSLog(@"Post bribe failure");
+            [_delegate postBribeFailure:[NSError errorWithDomain:@"Server Error" code:123 userInfo:nil]];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [_delegate postBribeFailure:error];
     }];

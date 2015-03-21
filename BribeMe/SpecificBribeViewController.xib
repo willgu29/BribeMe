@@ -9,10 +9,12 @@
                 <outlet property="backButton" destination="FEs-Ju-WX3" id="HvO-Z4-AkQ"/>
                 <outlet property="bribeButton" destination="Yqi-vH-wMs" id="aie-a8-Agh"/>
                 <outlet property="businessName" destination="uuj-Jq-z8Y" id="c9v-VP-4xZ"/>
+                <outlet property="cancelredeemBribe" destination="cdK-Qb-ETN" id="dcw-Kb-1N9"/>
                 <outlet property="featuredImage" destination="bIU-Fh-6Gl" id="24B-h1-cBi"/>
                 <outlet property="postContent" destination="UhT-lT-A16" id="aRW-TV-IPN"/>
                 <outlet property="postTitle" destination="jfc-5Z-svZ" id="AtL-ik-s2a"/>
                 <outlet property="profileIcon" destination="x10-1q-zsg" id="CjE-sj-s9A"/>
+                <outlet property="redeemBribe" destination="sLc-YO-RXS" id="uZw-20-YwD"/>
                 <outlet property="shareButton" destination="RpO-Wx-nQb" id="Pbi-HA-ObS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -71,6 +73,24 @@
                     </state>
                     <connections>
                         <action selector="acceptBribe:" destination="-1" eventType="touchUpInside" id="Du6-xD-jA1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdK-Qb-ETN">
+                    <rect key="frame" x="247" y="530" width="30" height="30"/>
+                    <state key="normal" title="NO">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelRedeemBribe:" destination="-1" eventType="touchUpInside" id="v9k-sf-nkf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLc-YO-RXS">
+                    <rect key="frame" x="38" y="530" width="30" height="30"/>
+                    <state key="normal" title="YES">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="redeemBribe:" destination="-1" eventType="touchUpInside" id="I7Q-KN-vre"/>
                     </connections>
                 </button>
             </subviews>

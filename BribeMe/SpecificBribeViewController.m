@@ -21,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
 @property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @property (nonatomic, weak) IBOutlet UIButton *bribeButton;
+@property (nonatomic, weak) IBOutlet UIButton *redeemBribe;
+@property (nonatomic, weak) IBOutlet UIButton *cancelredeemBribe;
 
 @property (nonatomic, strong) Wordpress *wordpress;
 
@@ -47,6 +49,8 @@
 
 -(void)setupIBOutlets
 {
+    _redeemBribe.hidden = YES;
+    _cancelredeemBribe.hidden = YES;
     [self setupBribeButton];
     _postTitle.text = @"Not yet available";
     _postContent.text = [_bribe valueForKey:B_post_content];
@@ -72,6 +76,7 @@
 }
 -(BOOL)isMyBribe
 {
+    NSLog(@"Is my bribe: %@", [_bribe objectForKey:B_is_mybribe]);
     NSNumber *isBribe = [_bribe objectForKey:B_is_mybribe];
     if ([isBribe isEqualToNumber:[NSNumber numberWithInt:1]])
     {
@@ -90,11 +95,15 @@
     sender.enabled = NO;
     if ([self isMyBribe] || [_bribeButton.titleLabel.text isEqualToString:@"Redeem Bribe"])
     {
-        [_wordpress postToCategory:REDEEMBRIBE andPostID:[_bribe valueForKey:B_post_id]];
+        [self setupRedeemButtons];
+    }
+    else if ([_bribeButton.titleLabel.text isEqualToString:@"Accept Bribe"])
+    {
+        [_wordpress postToCategory:ACCEPTBRIBE andPostID:[_bribe valueForKey:B_post_id]];
     }
     else
     {
-        [_wordpress postToCategory:ACCEPTBRIBE andPostID:[_bribe valueForKey:B_post_id]];
+        NSLog(@"Bribe accepted and redeemed already");
     }
 }
 
@@ -109,21 +118,41 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark -Wordpress Delegates
--(void)postBribeSuccess:(id)success
+-(IBAction)redeemBribe:(UIButton *)sender
 {
-    if ([self isMyBribe])
+    NSLog(@"Redeem");
+    [_wordpress postToCategory:REDEEMBRIBE andPostID:[_bribe valueForKey:B_post_id]];
+}
+-(IBAction)cancelRedeemBribe:(UIButton *)sender
+{
+    NSLog(@"Cancel");
+    _redeemBribe.hidden = YES;
+    _cancelredeemBribe.hidden = YES;
+    _bribeButton.hidden = NO;
+}
+-(void)setupRedeemButtons
+{
+    _redeemBribe.hidden = NO;
+    _cancelredeemBribe.hidden = NO;
+    _bribeButton.hidden = YES;
+}
+
+#pragma mark -Wordpress Delegates
+-(void)postBribeSuccess:(NSInteger)index
+{
+    if (index == REDEEMBRIBE)
     {
-        
+        [_bribeButton setTitle:@"Bribe Redeemed" forState:UIControlStateNormal];
+
     }
-    else
+    else if (index == ACCEPTBRIBE)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your bribe has been accepted and can be redeemed now!" delegate:nil cancelButtonTitle:@"Okay!"otherButtonTitles:nil];
         [alertView show];
         [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
 
     }
-    NSLog(@"Success: %@", success);
+    NSLog(@"Success: %ld", (long)index);
     _bribeButton.enabled = YES;
 }
 -(void)postBribeFailure:(NSError *)error

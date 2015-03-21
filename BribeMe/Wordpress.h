@@ -17,7 +17,7 @@
 -(void)createAccountFailureWithError:(NSError *)error;
 -(void)fetchCategorySuccess:(NSArray *)data withIndex:(NSInteger)index;
 -(void)fetchCategoryFailure:(NSError *)error;
--(void)postBribeSuccess:(id)success;
+-(void)postBribeSuccess:(NSInteger)index;
 -(void)postBribeFailure:(NSError *)error;
 
 @end
