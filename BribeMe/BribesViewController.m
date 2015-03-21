@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     _wordpress = [[Wordpress alloc] init];
     _wordpress.delegate = self;
     _categories = @[@"My Bribes", @"Featured", @"Dining", @"Nightlife", @"Shopping", @"Services"];
@@ -53,7 +55,7 @@
         [_wordpress getCategoryFromIndex:i];
     }
 
-    
+    [self refreshLogin];
 
     
     //configure swipe view
@@ -204,6 +206,14 @@
     [refreshControl endRefreshing];
 }
 
+-(void)refreshLogin
+{
+    [_wordpress loginWithUsername:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] andPassword:[[NSUserDefaults standardUserDefaults] objectForKey:@"password"]];
+}
+-(void)loginSuccessWithID:(NSString *)userID
+{
+    [[NSUserDefaults standardUserDefaults] setValue:userID forKey:@"user_id"];
+}
 
 
 @end

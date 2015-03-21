@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BribeMe/SpecificBribeViewController.m"
-            timestampString = "448669244.321509"
+            filePath = "BribeMe/Wordpress.m"
+            timestampString = "448670788.764048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "-postBribeFailure:"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-sendPostTo:andKeyIndex:andParameters:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

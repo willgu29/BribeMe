@@ -126,9 +126,7 @@
 -(IBAction)cancelRedeemBribe:(UIButton *)sender
 {
     NSLog(@"Cancel");
-    _redeemBribe.hidden = YES;
-    _cancelredeemBribe.hidden = YES;
-    _bribeButton.hidden = NO;
+    [self showBribeButton];
 }
 -(void)setupRedeemButtons
 {
@@ -143,6 +141,8 @@
     if (index == REDEEMBRIBE)
     {
         [_bribeButton setTitle:@"Bribe Redeemed" forState:UIControlStateNormal];
+        [self showBribeButton];
+        _bribeButton.enabled = NO;
 
     }
     else if (index == ACCEPTBRIBE)
@@ -150,14 +150,32 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your bribe has been accepted and can be redeemed now!" delegate:nil cancelButtonTitle:@"Okay!"otherButtonTitles:nil];
         [alertView show];
         [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
+        _bribeButton.enabled = YES;
 
     }
     NSLog(@"Success: %ld", (long)index);
-    _bribeButton.enabled = YES;
 }
 -(void)postBribeFailure:(NSError *)error
 {
+    if (error.code == 124)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You've already accepted this bribe! (Find it in My Bribes)" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"There was an error while trying to serve your request. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alertView show];
+    }
+
     NSLog(@"Error: %@", error);
+    _bribeButton.enabled = YES;
+}
+-(void)showBribeButton
+{
+    _redeemBribe.hidden = YES;
+    _cancelredeemBribe.hidden = YES;
+    _bribeButton.hidden = NO;
     _bribeButton.enabled = YES;
 }
 

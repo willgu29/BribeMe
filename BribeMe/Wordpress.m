@@ -193,9 +193,14 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:encodedURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([[responseObject valueForKey:@"success"] isEqualToString:@"success"])
+        if ([[responseObject valueForKey:@"success"] isEqualToString:@"bribe accepted!"] || [[responseObject valueForKey:@"success"] isEqualToString:@"bribe redeemed!"])
         {
             [_delegate postBribeSuccess:index];
+        }
+        else if ([[responseObject valueForKey:@"error"] isEqualToString:@"already accepted!"])
+        {
+            NSLog(@"Already accepted");
+            [_delegate postBribeFailure:[NSError errorWithDomain:@"Already accepted!" code:124 userInfo:nil]];
         }
         else
         {
