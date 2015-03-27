@@ -128,32 +128,37 @@
 {
     NSString *getFeatured = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETFEATURED];
     NSString *featuredEncoded = [NSString stringWithUTF8String:[getFeatured UTF8String]];
-    [self sendRequestFor:featuredEncoded andKeyIndex:FEATURED andParameters:nil];
+    NSDictionary *params = @{@"user_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"]};
+    [self sendRequestFor:featuredEncoded andKeyIndex:FEATURED andParameters:params];
 }
 -(void)getDining
 {
     NSString *getDining = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETDINING];
     NSString *diningEncoded = [NSString stringWithUTF8String:[getDining UTF8String]];
-    [self sendRequestFor:diningEncoded andKeyIndex:DINING andParameters:nil];
+    NSDictionary *params = @{@"user_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"]};
+    [self sendRequestFor:diningEncoded andKeyIndex:DINING andParameters:params];
 }
 -(void)getNightlife
 {
     NSString *getNightlife = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETNIGHTLIFE];
     NSString *nightlifeEncoded = [NSString stringWithUTF8String:[getNightlife UTF8String]];
-    [self sendRequestFor:nightlifeEncoded andKeyIndex:NIGHTLIFE andParameters:nil];
+    NSDictionary *params = @{@"user_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"]};
+    [self sendRequestFor:nightlifeEncoded andKeyIndex:NIGHTLIFE andParameters:params];
 
 }
 -(void)getShopping
 {
     NSString *getShopping = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETSHOPPING];
     NSString *shoppingEncoded = [NSString stringWithUTF8String:[getShopping UTF8String]];
-    [self sendRequestFor:shoppingEncoded andKeyIndex:SHOPPING andParameters:nil];
+    NSDictionary *params = @{@"user_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"]};
+    [self sendRequestFor:shoppingEncoded andKeyIndex:SHOPPING andParameters:params];
 }
 -(void)getServices
 {
     NSString *getServices = [NSString stringWithFormat:@"%@%@",kBMBASE_URL,GETSERVICES];
     NSString *servicesEncoded = [NSString stringWithUTF8String:[getServices UTF8String]];
-    [self sendRequestFor:servicesEncoded andKeyIndex:SERVICES andParameters:nil];
+    NSDictionary *params = @{@"user_id" : [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"]};
+    [self sendRequestFor:servicesEncoded andKeyIndex:SERVICES andParameters:params];
 
 }
 
