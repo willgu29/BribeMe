@@ -41,7 +41,7 @@
                   symbolName = "-[Wordpress sendPostTo:andKeyIndex:andParameters:]"
                   moduleName = "BribeMe"
                   urlString = "file:///Users/Gu/TheGuSystem/Work/Freelance/Projects/InProgress/BribeMe/BribeMe/BribeMe/Wordpress.m"
-                  timestampString = "449269257.053461"
+                  timestampString = "449273752.918737"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
@@ -55,7 +55,7 @@
                   symbolName = "__50-[Wordpress sendPostTo:andKeyIndex:andParameters:]_block_invoke"
                   moduleName = "BribeMe"
                   urlString = "file:///Users/Gu/TheGuSystem/Work/Freelance/Projects/InProgress/BribeMe/BribeMe/BribeMe/Wordpress.m"
-                  timestampString = "449269257.053966"
+                  timestampString = "449273752.918899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
@@ -63,6 +63,22 @@
                   offsetFromSymbolStart = "80">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BribeMe/BribesViewController.m"
+            timestampString = "449273739.778237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

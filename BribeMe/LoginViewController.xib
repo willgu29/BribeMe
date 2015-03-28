@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="-1" width="320" height="569"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-uv-28l">
-                    <rect key="frame" x="34" y="310" width="252" height="40"/>
+                    <rect key="frame" x="34" y="332" width="252" height="40"/>
                     <color key="backgroundColor" red="0.26343068480491638" green="0.72860836982727051" blue="0.66730952262878418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Login">
                         <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -41,8 +41,8 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mee-5q-Syr">
-                    <rect key="frame" x="203" y="522" width="109" height="38"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <rect key="frame" x="203" y="522" width="83" height="38"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <state key="normal" title="Sign Up Here">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,8 +55,8 @@
                     <rect key="frame" x="77" y="65" width="167" height="49"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSu-ap-Uvr">
-                    <rect key="frame" x="8" y="522" width="187" height="38"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                    <rect key="frame" x="34" y="522" width="168" height="38"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -73,7 +73,7 @@
                     <rect key="frame" x="142" y="287" width="37" height="37"/>
                 </activityIndicatorView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-PM-XKa">
-                    <rect key="frame" x="34" y="178" width="40" height="40"/>
+                    <rect key="frame" x="34" y="179" width="40" height="40"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="padlock" translatesAutoresizingMaskIntoConstraints="NO" id="8pV-7Y-FMj">
                     <rect key="frame" x="34" y="237" width="40" height="40"/>
