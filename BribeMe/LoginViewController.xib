@@ -17,8 +17,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Login_Screen_Image copy" translatesAutoresizingMaskIntoConstraints="NO" id="HMY-pI-OGH">
+                    <rect key="frame" x="0.0" y="-1" width="320" height="569"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEr-uv-28l">
-                    <rect key="frame" x="34" y="339" width="252" height="40"/>
+                    <rect key="frame" x="34" y="310" width="252" height="40"/>
                     <color key="backgroundColor" red="0.26343068480491638" green="0.72860836982727051" blue="0.66730952262878418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Login">
                         <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,9 +86,6 @@
                     <rect key="frame" x="34" y="283" width="252" height="2"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </progressView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Login_Screen_Image copy" translatesAutoresizingMaskIntoConstraints="NO" id="HMY-pI-OGH">
-                    <rect key="frame" x="0.0" y="-1" width="320" height="569"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
