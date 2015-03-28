@@ -12,7 +12,7 @@
 @interface LoginViewController ()
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
-@property (nonatomic, weak) IBOutlet UITextField *username;
+@property (nonatomic, weak) IBOutlet UITextField *email;
 @property (nonatomic, weak) IBOutlet UITextField *password;
 @property (nonatomic, strong) Wordpress *wordpress;
 
@@ -24,6 +24,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _wordpress = [[Wordpress alloc] init];
+    NSAttributedString *emailAttr = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    NSAttributedString *passwordAttr = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+
+    _email.attributedPlaceholder = emailAttr;
+    _password.attributedPlaceholder = passwordAttr;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -40,7 +45,7 @@
 -(IBAction)login:(UIButton *)sender
 {
     [_spinner startAnimating];
-    [_wordpress loginWithUsername:_username.text andPassword:_password.text];
+    [_wordpress loginWithUsername:_email.text andPassword:_password.text];
 }
 -(IBAction)createAccount:(UIButton *)sender
 {
@@ -67,7 +72,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"user_id"];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isLoggedIn"];
-    [[NSUserDefaults standardUserDefaults] setObject:_username.text forKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] setObject:_email.text forKey:@"username"];
     [[NSUserDefaults standardUserDefaults] setObject:_password.text forKey:@"password"];
     
     

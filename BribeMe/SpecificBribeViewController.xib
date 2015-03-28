@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="backButton" destination="FEs-Ju-WX3" id="HvO-Z4-AkQ"/>
                 <outlet property="bribeButton" destination="Yqi-vH-wMs" id="aie-a8-Agh"/>
-                <outlet property="businessName" destination="uuj-Jq-z8Y" id="c9v-VP-4xZ"/>
                 <outlet property="cancelredeemBribe" destination="cdK-Qb-ETN" id="dcw-Kb-1N9"/>
                 <outlet property="featuredImage" destination="bIU-Fh-6Gl" id="24B-h1-cBi"/>
                 <outlet property="postContent" destination="UhT-lT-A16" id="aRW-TV-IPN"/>
@@ -17,6 +16,8 @@
                 <outlet property="redeemBribe" destination="sLc-YO-RXS" id="uZw-20-YwD"/>
                 <outlet property="shareButton" destination="RpO-Wx-nQb" id="Pbi-HA-ObS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="businessNames" destination="uuj-Jq-z8Y" id="uti-dk-K5p"/>
+                <outletCollection property="businessNames" destination="Nls-XD-nP4" id="5Qo-If-hW2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,27 +25,40 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIU-Fh-6Gl">
-                    <rect key="frame" x="0.0" y="63" width="320" height="230"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-Ju-WX3">
-                    <rect key="frame" x="8" y="8" width="70" height="47"/>
-                    <state key="normal" title="Back">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="back:" destination="-1" eventType="touchUpInside" id="u1V-yX-hrL"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpO-Wx-nQb">
-                    <rect key="frame" x="244" y="8" width="68" height="47"/>
-                    <state key="normal" title="Share">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="share:" destination="-1" eventType="touchUpInside" id="59z-fo-STp"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zcg-6T-mWi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEs-Ju-WX3">
+                            <rect key="frame" x="8" y="11" width="46" height="47"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="u1V-yX-hrL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpO-Wx-nQb">
+                            <rect key="frame" x="269" y="8" width="43" height="54"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                            <state key="normal" title="Share">
+                                <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="share:" destination="-1" eventType="touchUpInside" id="59z-fo-STp"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nls-XD-nP4">
+                            <rect key="frame" x="62" y="24" width="199" height="21"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <color key="textColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.26343068480491638" green="0.72860836982727051" blue="0.66730952262878418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfc-5Z-svZ">
                     <rect key="frame" x="8" y="301" width="196" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -57,6 +71,9 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIU-Fh-6Gl">
+                    <rect key="frame" x="0.0" y="69" width="320" height="224"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x10-1q-zsg">
                     <rect key="frame" x="212" y="251" width="100" height="100"/>
                 </imageView>
@@ -67,26 +84,30 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqi-vH-wMs">
-                    <rect key="frame" x="76" y="517" width="168" height="51"/>
+                    <rect key="frame" x="46" y="516" width="228" height="44"/>
+                    <color key="backgroundColor" red="0.98457938432693481" green="0.8027576208114624" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="The Button">
+                        <color key="titleColor" red="0.86721092462539673" green="0.11153601855039597" blue="0.42042776942253113" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="acceptBribe:" destination="-1" eventType="touchUpInside" id="Du6-xD-jA1"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdK-Qb-ETN">
-                    <rect key="frame" x="247" y="530" width="30" height="30"/>
-                    <state key="normal" title="NO">
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdK-Qb-ETN">
+                    <rect key="frame" x="212" y="516" width="100" height="44"/>
+                    <color key="backgroundColor" red="0.67837697267532349" green="0.87597614526748657" blue="0.97451275587081909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="CANCEL">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="cancelRedeemBribe:" destination="-1" eventType="touchUpInside" id="v9k-sf-nkf"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLc-YO-RXS">
-                    <rect key="frame" x="38" y="530" width="30" height="30"/>
-                    <state key="normal" title="YES">
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLc-YO-RXS">
+                    <rect key="frame" x="8" y="516" width="100" height="44"/>
+                    <color key="backgroundColor" red="0.67837697267532349" green="0.87597614526748657" blue="0.97451275587081909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="CONFIRM">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

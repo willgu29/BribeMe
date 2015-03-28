@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateAccountViewController">
             <connections>
                 <outlet property="dob" destination="AzS-sQ-Vj4" id="8c9-dh-BcB"/>
+                <outlet property="dobField" destination="16G-7M-wif" id="SFo-cC-rG6"/>
                 <outlet property="password" destination="JRZ-lB-gsy" id="zrs-he-ZhQ"/>
                 <outlet property="spinner" destination="4gl-z8-kfN" id="wLt-7x-UlY"/>
                 <outlet property="username" destination="Rq5-ax-A3s" id="zwL-CS-sq3"/>
@@ -18,16 +19,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRZ-lB-gsy">
-                    <rect key="frame" x="61" y="98" width="198" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Create Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRZ-lB-gsy">
+                    <rect key="frame" x="25" y="124" width="270" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="9Y3-l0-vPM"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rq5-ax-A3s">
-                    <rect key="frame" x="61" y="60" width="198" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rq5-ax-A3s">
+                    <rect key="frame" x="25" y="86" width="270" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -35,8 +36,10 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-5H-I42">
-                    <rect key="frame" x="107" y="360" width="107" height="30"/>
-                    <state key="normal" title="Create Account">
+                    <rect key="frame" x="25" y="450" width="270" height="44"/>
+                    <color key="backgroundColor" red="0.26343068480491638" green="0.72860836982727051" blue="0.66730952262878418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -44,13 +47,13 @@
                     </connections>
                 </button>
                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AzS-sQ-Vj4">
-                    <rect key="frame" x="25" y="136" width="270" height="162"/>
+                    <rect key="frame" x="25" y="203" width="270" height="162"/>
                     <date key="date" timeIntervalSinceReferenceDate="447035131.81641501">
                         <!--2015-03-03 00:25:31 +0000-->
                     </date>
                 </datePicker>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4gl-z8-kfN">
-                    <rect key="frame" x="150" y="332" width="20" height="20"/>
+                    <rect key="frame" x="150" y="256" width="20" height="20"/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPe-dK-3V1">
                     <rect key="frame" x="8" y="8" width="62" height="44"/>
@@ -59,6 +62,26 @@
                     </state>
                     <connections>
                         <action selector="back:" destination="-1" eventType="touchUpInside" id="79q-LA-txT"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Already have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNk-kA-hVY">
+                    <rect key="frame" x="16" y="539" width="199" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Birthday" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16G-7M-wif">
+                    <rect key="frame" x="25" y="162" width="270" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCt-uS-tlQ">
+                    <rect key="frame" x="223" y="535" width="89" height="30"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Login here">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="BTE-hF-GUU"/>
                     </connections>
                 </button>
             </subviews>

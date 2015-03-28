@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *username;
 @property (nonatomic, weak) IBOutlet UITextField *password;
+@property (nonatomic, weak) IBOutlet UITextField *dobField;
 @property (nonatomic, weak) IBOutlet UIDatePicker *dob;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 
@@ -22,7 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [_dob addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
 }
+
+- (void) dateChanged:(id)sender{
+    // handle date changes
+    _dobField.text = [self formatDate];
+}
+
 -(IBAction)back:(UIButton *)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -38,12 +46,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(IBAction)createAccount:(UIButton *)sender
 {
-    NSDate *date = [_dob date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-    NSString *dateString = [dateFormatter stringFromDate:date];
+
+    NSString *dateString = [self formatDate];
     
     [_spinner startAnimating];
     [_wordpress createAccountWithUsername:_username.text andPassword:_password.text andDOB:dateString];
@@ -110,6 +117,16 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+
+#pragma mark -Helper function
+-(NSString *)formatDate
+{
+    NSDate *date = [_dob date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    return dateString;
 }
 
 @end

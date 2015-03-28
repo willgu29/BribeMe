@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSMutableArray *services;
 
 
+@property (nonatomic, strong) UIAlertView *alert;
+
 @end
 
 @implementation BribesViewController
@@ -121,6 +123,7 @@
         //item view, if different items have different contents, ignore the reusingView value
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.swipeView.bounds];
         // Initialize the refresh control.
+        [self removeInsetsFrom:tableView];
         UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
         [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
         [tableView addSubview:refreshControl];
@@ -166,6 +169,9 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BribeTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    [cell.contentView.layer setBorderColor:[UIColor colorWithRed:0.886 green:0.098 blue:0.411 alpha:1].CGColor];
+    [cell.contentView.layer setBorderWidth:5.0f];
+    
     NSMutableArray *category = [_categoryContainer objectAtIndex:tableView.tag];
     NSDictionary *bribe = [category objectAtIndex:indexPath.row];
     
@@ -193,11 +199,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 230;
+    return 220;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 230;
+    return 220;
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
@@ -214,6 +220,38 @@
 {
     [[NSUserDefaults standardUserDefaults] setValue:userID forKey:@"user_id"];
 }
+-(void)loginFailureWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", error);
+    if (error.code == -1009 && !self.alert.visible)
+    {
+        self.alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please check your internet connection." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [self.alert show];
+    }
+}
 
+#pragma mark - TextField Delegate
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Hmm" message:@"Search functionality coming soon!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alertView show];
+    return NO;
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+#pragma mark - Helper functions
+
+-(void)removeInsetsFrom:(UITableView *)tableView
+{
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)])
+        [tableView setSeparatorInset:UIEdgeInsetsZero];
+    
+    if ([tableView respondsToSelector:@selector(setSeparatorStyle:)])
+        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
 
 @end

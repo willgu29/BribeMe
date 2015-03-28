@@ -207,6 +207,11 @@
             NSLog(@"Already accepted");
             [_delegate postBribeFailure:[NSError errorWithDomain:@"Already accepted!" code:124 userInfo:nil]];
         }
+        else if ([[responseObject valueForKey:@"error"] isEqualToString:@"bribe already redeemed!"])
+        {
+            NSLog(@"Already Redeeemd");
+            [_delegate postBribeFailure:[NSError errorWithDomain:@"Bribe already redeemed!" code:125 userInfo:nil]];
+        }
         else
         {
             NSLog(@"Post bribe failure");

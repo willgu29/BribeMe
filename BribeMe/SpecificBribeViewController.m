@@ -14,8 +14,10 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *featuredImage;
 @property (nonatomic, weak) IBOutlet UIImageView *profileIcon;
+
+@property (nonatomic, strong) IBOutletCollection(UILabel) NSArray *businessNames;
+
 @property (nonatomic, weak) IBOutlet UILabel *postTitle;
-@property (nonatomic, weak) IBOutlet UILabel *businessName;
 @property (nonatomic, weak) IBOutlet UILabel *postContent;
 
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
@@ -54,7 +56,8 @@
     [self setupBribeButton];
     _postTitle.text = @"Not yet available";
     _postContent.text = [_bribe valueForKey:B_post_content];
-    _businessName.text = [_bribe valueForKey:B_author_name];
+    for (UILabel *businessName in _businessNames){
+        businessName.text = [_bribe valueForKey:B_author_name]; }
     
     NSArray *profileIconURL = [_bribe valueForKey:B_author_image];
     NSURL *encodedProfileURL = [NSURL URLWithString:[profileIconURL firstObject]];
@@ -65,13 +68,17 @@
 }
 -(void)setupBribeButton
 {
+    [_bribeButton.layer setBorderColor:[UIColor colorWithRed:0.886 green:0.098 blue:0.441 alpha:1].CGColor];
+    [_bribeButton.layer setBorderWidth:2.0f];
     if ([self isMyBribe])
     {
         [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
+        [_bribeButton setBackgroundColor:[UIColor colorWithRed:0.666 green:0.878 blue:0.964 alpha:1]];
     }
     else
     {
         [_bribeButton setTitle:@"Accept Bribe" forState:UIControlStateNormal];
+        [_bribeButton setBackgroundColor:[UIColor colorWithRed:0.992 green:0.796 blue:0.203 alpha:1]];
     }
 }
 -(BOOL)isMyBribe
@@ -141,6 +148,7 @@
     if (index == REDEEMBRIBE)
     {
         [_bribeButton setTitle:@"Bribe Redeemed" forState:UIControlStateNormal];
+        [_bribeButton setBackgroundColor:[UIColor colorWithRed:0.666 green:0.878 blue:0.964 alpha:1]];
         [self showBribeButton];
         _bribeButton.enabled = NO;
 
@@ -150,6 +158,7 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Your bribe has been accepted and can be redeemed now!" delegate:nil cancelButtonTitle:@"Okay!"otherButtonTitles:nil];
         [alertView show];
         [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
+        [_bribeButton setBackgroundColor:[UIColor colorWithRed:0.666 green:0.878 blue:0.964 alpha:1]];
         _bribeButton.enabled = YES;
 
     }
@@ -160,6 +169,11 @@
     if (error.code == 124)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"You've already accepted this bribe! (Find it in My Bribes)" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else if (error.code == 125)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Hmmm" message:@"This bribe has already been redeemed!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [alertView show];
     }
     else
@@ -178,5 +192,9 @@
     _bribeButton.hidden = NO;
     _bribeButton.enabled = YES;
 }
+
+#pragma mark - Helper functions
+
+
 
 @end

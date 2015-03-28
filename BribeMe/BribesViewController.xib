@@ -18,45 +18,62 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfT-Ai-JgK" customClass="SwipeView">
-                    <rect key="frame" x="0.0" y="133" width="320" height="435"/>
-                    <color key="backgroundColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="osR-q4-pYF"/>
-                        <outlet property="delegate" destination="-1" id="j1N-7G-Tig"/>
-                    </connections>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n7b-ky-OrH">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-rI-Yxq">
+                            <rect key="frame" x="82" y="24" width="157" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="wmg-9g-OfG">
+                            <rect key="frame" x="111" y="33" width="98" height="37"/>
+                            <color key="pageIndicatorTintColor" red="0.95520550270000004" green="0.95520550270000004" blue="0.95520550270000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="currentPageIndicatorTintColor" red="0.53156844430000005" green="0.53156844430000005" blue="0.53156844430000005" alpha="1" colorSpace="calibratedRGB"/>
+                        </pageControl>
+                    </subviews>
+                    <color key="backgroundColor" red="0.26343068480491638" green="0.72860836982727051" blue="0.66730952262878418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6p-gB-nyu">
-                    <rect key="frame" x="60" y="48" width="201" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="38E-Rt-BhJ"/>
-                    </connections>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-rI-Yxq">
-                    <rect key="frame" x="82" y="19" width="157" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aig-oa-7LO">
-                    <rect key="frame" x="255" y="19" width="57" height="30"/>
-                    <state key="normal" title="Settings">
+                    <rect key="frame" x="275" y="70" width="45" height="40"/>
+                    <color key="backgroundColor" red="0.67837697267532349" green="0.87597614526748657" blue="0.97451275587081909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.86721092462539673" green="0.11153601855039597" blue="0.42042776942253113" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="Gear_Icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="settings:" destination="-1" eventType="touchUpInside" id="Ni4-V4-On8"/>
                     </connections>
                 </button>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="wmg-9g-OfG">
-                    <rect key="frame" x="111" y="76" width="98" height="37"/>
-                    <color key="pageIndicatorTintColor" red="0.95520550270000004" green="0.95520550270000004" blue="0.95520550270000004" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="currentPageIndicatorTintColor" red="0.53156844430000005" green="0.53156844430000005" blue="0.53156844430000005" alpha="1" colorSpace="calibratedRGB"/>
-                </pageControl>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6p-gB-nyu">
+                    <rect key="frame" x="31" y="70" width="244" height="40"/>
+                    <color key="backgroundColor" red="0.67837697267532349" green="0.87597614526748657" blue="0.97451275587081909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="38E-Rt-BhJ"/>
+                    </connections>
+                </textField>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Magnifying_Glass_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="p48-4c-8Qo">
+                    <rect key="frame" x="0.0" y="70" width="31" height="40"/>
+                    <color key="backgroundColor" red="0.67837697267532349" green="0.87597614526748657" blue="0.97451275587081909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfT-Ai-JgK" customClass="SwipeView">
+                    <rect key="frame" x="0.0" y="110" width="320" height="458"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="osR-q4-pYF"/>
+                        <outlet property="delegate" destination="-1" id="j1N-7G-Tig"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="128" y="144"/>
         </view>
     </objects>
+    <resources>
+        <image name="Gear_Icon" width="20" height="20"/>
+        <image name="Magnifying_Glass_Icon" width="20" height="20"/>
+    </resources>
 </document>
