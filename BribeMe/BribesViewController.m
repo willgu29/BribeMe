@@ -199,11 +199,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 230;
+    return 240;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 230;
+    return 240;
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
