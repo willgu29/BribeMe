@@ -69,7 +69,7 @@
 -(void)setupBribeButton
 {
     [_bribeButton.layer setBorderColor:[UIColor colorWithRed:0.886 green:0.098 blue:0.441 alpha:1].CGColor];
-    [_bribeButton.layer setBorderWidth:2.0f];
+    [_bribeButton.layer setBorderWidth:1.0f];
     if ([self isMyBribe])
     {
         [_bribeButton setTitle:@"Redeem Bribe" forState:UIControlStateNormal];
